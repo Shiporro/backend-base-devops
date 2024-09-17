@@ -15,8 +15,10 @@ describe("Test Suite App", () => {
     });
 
     test("endpoint /palindromo", () => {
-        expect(esPalindromo('ala')).toBe(true);
-        expect(esPalindromo('hola')).toBe(false);
+        expect(esPalindromo('ala')).toBe(true); //Deberia devolver verdadero para ala
+        expect(esPalindromo('hola')).toBe(false); //Deberia devolver falso para hola
+        expect(esPalindromo('')).toBe(true); //Si es un espacio en blanco deberia de volver verdadero
+        expect(esPalindromo('a')).toBe(true); //Si es solo un caracter deberia devolver verdader
     });
     
 
