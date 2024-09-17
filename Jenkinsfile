@@ -4,7 +4,7 @@ pipeline {
         timeout(time: 3, unit: 'SECONDS')
     }
     stages {
-        satge('Ejemplo'){
+        stage('Ejemplo'){
             step {
                 sh 'echo "Hola Mundo'
             }
