@@ -16,7 +16,9 @@ describe("Test Suite App", () => {
 
     test("endpoint /palindromo", () => {
         expect(esPalindromo('ala')).toBe(true);
+        expect(esPalindromo('hola')).toBe(false);
     });
+    
 
     test("endpoint /primo", () => {
         expect(1 + 1).toBe(2);
