@@ -31,13 +31,20 @@ describe("Test Suite App", () => {
     });
     
 
-    test("endpoint /primo", () => {
+    test("endpoint /primo", async () => {
         expect(esPrimo(0)).toBe(false);
         expect(esPrimo(1)).toBe(false);
         expect(esPrimo(2)).toBe(true);
         expect(esPrimo(3)).toBe(true);  
         expect(esPrimo(827910410)).toBe(false);
-        expect(esPrimo(2943849)).toBe(false);  
+        expect(esPrimo(2943849)).toBe(false);
+        
+        return await request(app)
+            .get("/primo/:3")
+            .expect("Content-Type", /text/)
+            .then((response) => {
+                expect(response.text).toBe("Hola, el numero ingresado es un numero primo");
+            })
     });
 
     test("test de endpoint /", async () => {
