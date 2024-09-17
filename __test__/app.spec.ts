@@ -25,6 +25,7 @@ describe("Test Suite App", () => {
         return await request(app)
             .get("/palindromo/:ala")
             .expect("Content-Type", /text/)
+            .expect(200)
             .then((response) => {
                 expect(response.text).toBe("Hola, La frase ingresada es palindromo");
             })
@@ -42,6 +43,7 @@ describe("Test Suite App", () => {
         return await request(app)
             .get("/primo/:3")
             .expect("Content-Type", /text/)
+            .expect(200)
             .then((response) => {
                 expect(response.text).toBe("Hola, el numero ingresado es un numero primo");
             })
