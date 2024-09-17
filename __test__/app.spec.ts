@@ -20,6 +20,9 @@ describe("Test Suite App", () => {
         expect(esPalindromo('hola')).toBe(false); //Deberia devolver falso para hola
         expect(esPalindromo('')).toBe(true); //Si es un espacio en blanco deberia de volver verdadero
         expect(esPalindromo('a')).toBe(true); //Si es solo un caracter deberia devolver verdader
+        
+        let frase: "ala";
+        expect('Hola, La frase ingresada ala es palindromo');
     });
     
 
