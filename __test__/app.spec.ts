@@ -2,6 +2,7 @@ import { describe, test, expect } from "@jest/globals";
 import app from "../src/server.js";
 import request from "supertest";
 import { configuration } from "../src/config.js";
+import { esPalindromo } from "../src/palindromo.js";
 
 describe("Test Suite App", () => {
 
@@ -14,7 +15,7 @@ describe("Test Suite App", () => {
     });
 
     test("endpoint /palindromo", () => {
-        expect(1 + 1).toBe(2);
+        expect(esPalindromo('ala')).toBe(true);
     });
 
     test("endpoint /primo", () => {
