@@ -3,6 +3,7 @@ import app from "../src/server.js";
 import request from "supertest";
 import { configuration } from "../src/config.js";
 import { esPalindromo } from "../src/palindromo.js";
+import { esPrimo } from "../src/numeros.js";
 
 describe("Test Suite App", () => {
 
@@ -23,7 +24,12 @@ describe("Test Suite App", () => {
     
 
     test("endpoint /primo", () => {
-        expect(1 + 1).toBe(2);
+        expect(esPrimo(0)).toBe(false);
+        expect(esPrimo(1)).toBe(false);
+        expect(esPrimo(2)).toBe(true);
+        expect(esPrimo(3)).toBe(true);  
+        expect(esPrimo(827910410)).toBe(false);
+        expect(esPrimo(2943849)).toBe(false);
     });
 
     test("test de endpoint /", async () => {
