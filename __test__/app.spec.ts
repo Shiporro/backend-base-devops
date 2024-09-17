@@ -4,6 +4,7 @@ import request from "supertest";
 import { configuration } from "../src/config.js";
 import { esPalindromo } from "../src/palindromo.js";
 import { esPrimo } from "../src/numeros.js";
+import { response } from "express";
 
 describe("Test Suite App", () => {
 
@@ -15,14 +16,18 @@ describe("Test Suite App", () => {
         expect(1 + 1).toBe(2);
     });
 
-    test("endpoint /palindromo", () => {
+    test("endpoint /palindromo", async () => {
         expect(esPalindromo('ala')).toBe(true); //Deberia devolver verdadero para ala
         expect(esPalindromo('hola')).toBe(false); //Deberia devolver falso para hola
         expect(esPalindromo('')).toBe(true); //Si es un espacio en blanco deberia de volver verdadero
         expect(esPalindromo('a')).toBe(true); //Si es solo un caracter deberia devolver verdader
-        
-        let frase: "ala";
-        expect('Hola, La frase ingresada ala es palindromo');
+
+        return await request(app)
+            .get("/palindromo/:ala")
+            .expect("Content-Type", /text/)
+            .then((response) => {
+                expect(response.text).toBe("Hola, La frase ingresada ala es un palindromo");
+            })
     });
     
 
