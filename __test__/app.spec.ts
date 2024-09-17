@@ -30,6 +30,7 @@ describe("Test Suite App", () => {
         expect(esPrimo(3)).toBe(true);  
         expect(esPrimo(827910410)).toBe(false);
         expect(esPrimo(2943849)).toBe(false);
+        expect(esPrimo(6)).toBe(false);  
     });
 
     test("test de endpoint /", async () => {
