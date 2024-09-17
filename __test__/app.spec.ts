@@ -26,7 +26,7 @@ describe("Test Suite App", () => {
             .get("/palindromo/:ala")
             .expect("Content-Type", /text/)
             .then((response) => {
-                expect(response.text).toBe("Hola, La frase ingresada es un palindromo");
+                expect(response.text).toBe("Hola, La frase ingresada es palindromo");
             })
     });
     
