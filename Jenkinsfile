@@ -1,12 +1,13 @@
 pipeline {
     agent any
-    options {
-        timeout(time: 3, unit: 'SECONDS')
-    }
+    
     stages {
-        stage('Ejemplo'){
+        stage('Instalar dependencias'){
             steps {
-                sh 'echo "Hola Mundo"'
+                sh 'npm install'
+            }
+            steps {
+                sh 'npm run test'
             }
         }
     }
