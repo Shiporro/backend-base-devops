@@ -26,5 +26,12 @@ pipeline {
                 }
             }
         }
+        stage('Deploy'){
+            stage('Creacion de contenedor') {
+                steps {
+                    sh 'docker build -t backend-base:latest .'
+                }       
+            }
+        }
     }
 }
